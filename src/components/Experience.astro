@@ -1,0 +1,31 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+
+const EXPERIENCIE = [
+    {
+        date: '2020 - Present',
+        title: 'Freelance and Self-Taught Web Developer',
+        description: `Since 2020, I’ve independently developed my web development skills, starting with HTML, CSS, and JavaScript, and expanding into a wide range of technologies including React, Node.js, PHP, MySQL, APIs, GraphQL, TypeScript, TailwindCSS, Astro, Express, SASS, and Fetch. I’ve built projects like a custom wedding invitation app using React and Google API, and I'm currently collaborating on an online pharmacy store. My experience combines practical project work with continuous learning, making me a versatile and up-to-date developer.`,
+        link: '',
+    },
+    {
+        date: 'Agust 2022 - Agust 2024',
+        title: 'Network Administrator, Israel Defense Forces',
+        description: `I was a lone soldier in the Israel Defense Force. I worked as a Network Administrator in a call center, I was
+        responsible for managing and resolving a variety of technical issues related to network and internet
+        connectivity, army application malfunctions, and system problems.`,
+        link: '',
+    },
+
+]
+---
+
+<ol class="relative border-s border-gray-200 ml-3">
+    {
+        EXPERIENCIE.map(experience => (
+        <li class="mb-10 ms-4">
+            <ExperienceItem {...experience}/>
+        </li>
+        ))
+    }                  
+</ol>

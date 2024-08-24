@@ -1,0 +1,87 @@
+---
+import HTMLIcon from '../components/icons/HTML.astro'
+import CSSIcon from '../components/icons/CSS.astro'
+import JavaScriptIcon from '../components/icons/JavaScript.astro'
+import ReactIcon from '../components/icons/React.astro'
+import GoogleIcon from '../components/icons/Google.astro'
+import ExpressIcon from '../components/icons/Express.astro'
+import NodeJSIcon from '../components/icons/NodeJS.astro'
+import NPMIcon from '../components/icons/NPM.astro'
+const TAGS = {
+    HTML: {
+        name: "HTML",
+        class: "bg-orange-500/20 text-white",
+        icon: HTMLIcon,
+    },
+    CSS: {
+        name: "CSS",
+        class: "bg-sky-500/20 text-white",
+        icon: CSSIcon,
+    },
+    JavaScript: {
+        name: "JavaScript",
+        class: "bg-yellow-500/20 text-white",
+        icon: JavaScriptIcon,
+    },
+    React: {
+        name: "React",
+        class: "bg-sky-500/20 text-white",
+        icon: ReactIcon,
+    },
+    Google: {
+        name: "Google",
+        class: "bg-red-500/20 text-white",
+        icon: GoogleIcon,
+    },
+    Express: {
+        name: "React",
+        class: "bg-gray-500/20 text-white",
+        icon: ExpressIcon,
+    },
+    NodeJS: {
+        name: "NodeJS",
+        class: "bg-green-500/20 text-white",
+        icon: NodeJSIcon,
+    },
+    NPM: {
+        name: "NPM",
+        class: "bg-red-500/20 text-white",
+        icon: NPMIcon,
+    },
+}
+const PROJECTS = [
+    {
+        title: 'Wedding Card',
+        description: `This beautifully designed wedding invitation page, built with modern web technologies, provides all the essential details for the special day of Iair and Michu. Guests can easily RSVP through the site, with responses being seamlessly recorded in a Google Sheets document via Google API, allowing the couple to track confirmations in real-time. The page also integrates with Google Maps for easy navigation to the venue, ensuring a user-friendly experience across all devices. This invitation reflects the elegance and personal touch of the couple's celebration, inviting guests to join in their joyous occasion.`,
+        link: 'https://casamiento-bce227035385.herokuapp.com/',
+        github: 'https://github.com/danaembon/Casamiento',
+        image: '/projectWedding.webp',
+        tags: [TAGS.HTML, TAGS.CSS, TAGS.JavaScript, TAGS.React, TAGS.Express, TAGS.Google, TAGS.NodeJS, TAGS.NPM]
+    }
+]
+---
+
+{
+    PROJECTS.map(({ image, title, description, tags}) => (
+        <article>
+            <h3 class="text-2xl font-semibold text-yellow-200 mb-2">
+                {title}
+            </h3>
+            <p class="text-lg mb-4 text-pretty">
+                {description} 
+            </p>
+            <ul class="flex gap-x-2 flex-row mb-2">
+                {tags.map((tag) => (
+                    <li>
+                        <span class={`${tag.class} flex gap-x-2 rounded-full text-xs py-1 px-2 `}>
+                            <tag.icon class="size-4"/>
+                            {tag.name}
+                        </span>
+                    </li>
+                ))}
+            </ul>
+            <img class="rounded shadow-2xl shadow-white/10" src={image} alt= {`Project screenshot ${image}`}
+            />
+        </article>
+    ))
+}
